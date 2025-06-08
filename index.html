@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Project</title>
+  <style>
+    /* Basic resets and styling */
+    body { margin:0; font-family: Arial, sans-serif; line-height:1.6; color:#333; }
+    header { background:#333; color:#fff; padding:1rem 0; }
+    nav ul { list-style:none; display:flex; justify-content:center; margin:0; padding:0; }
+    nav li { margin: 0 1rem; }
+    nav a { color:#fff; text-decoration:none; font-weight:bold; }
+    .container { width:90%; max-width:960px; margin:auto; overflow:hidden; padding:2rem 0; }
+    #hero { background:#f4f4f4; padding:2rem 0; text-align:center; }
+    #hero h1 { margin-bottom:1rem; }
+    #hero a.btn { display:inline-block; margin-top:1rem; padding:.75rem 1.5rem; background:#333; color:#fff; text-decoration:none; border-radius:4px; }
+    section { padding:2rem 0; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:1rem; }
+    .feature { background:#f4f4f4; padding:1rem; border-radius:4px; text-align:center; }
+    footer { background:#333; color:#fff; text-align:center; padding:1rem 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#usage">Usage</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://github.com/username/repo" target="_blank">GitHub</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="hero">
+      <h1>My Project</h1>
+      <p>A brief tagline or description of what your project does.</p>
+      <a href="https://github.com/username/repo" class="btn" target="_blank">View on GitHub</a>
+    </section>
+
+    <section id="features">
+      <h2>Features</h2>
+      <div class="grid">
+        <div class="feature">
+          <h3>Feature 1</h3>
+          <p>Describe feature 1</p>
+        </div>
+        <div class="feature">
+          <h3>Feature 2</h3>
+          <p>Describe feature 2</p>
+        </div>
+        <div class="feature">
+          <h3>Feature 3</h3>
+          <p>Describe feature 3</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="installation">
+      <h2>Installation</h2>
+      <pre><code>git clone https://github.com/username/repo.git
+cd repo
+npm install
+</code></pre>
+    </section>
+
+    <section id="usage">
+      <h2>Usage</h2>
+      <p>Explain how to use your project.</p>
+      <pre><code>npm start
+</code></pre>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Created by <a href="https://github.com/username" target="_blank">Your Name</a>. Feel free to reach out!</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Your Name. Licensed under the MIT License.</p>
+  </footer>
+</body>
+</html>
