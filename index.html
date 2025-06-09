@@ -112,7 +112,7 @@ npm install
 
     // Load and add .pcd point cloud
     const loader = new THREE.PCDLoader();
-    loader.load('models/pointcloud.pcd', function (points) {
+    loader.load('models/cutty_sark.pcd', function (points) {
       points.material.size = 0.01;
       scene.add(points);
       animate();
