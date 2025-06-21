@@ -1,0 +1,69 @@
+<!-- project2.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soft Robotics</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+    header { background: #2c3e50; }
+    nav { display: flex; justify-content: center; }
+    nav a { padding: 1rem 1.5rem; color: #ecf0f1; text-decoration: none; transition: background 0.3s; }
+    nav a:hover, nav a.active { background: #34495e; }
+    main { padding: 2rem; max-width: 960px; margin: auto; }
+    /* Justify text for consistent line lengths */
+    h1, p { text-align: justify; hyphens: none; }
+    .pdf-container { margin-top: 1rem; }
+    /* Fade animations on load */
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-down { opacity: 0; animation: fadeDown 0.6s ease forwards; }
+    .fade-up { opacity: 0; animation: fadeUp 0.6s ease forwards; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="project1.html">Deep Learning Image Classification</a>
+      <a href="project2.html" class="active">Soft Robotics</a>
+      <a href="project3.html">Dissertation: Tactile Robotics</a>
+    </nav>
+  </header>
+  <main>
+    <h1 class="fade-down">Literature Review: Shape Memory Alloys and Origami Structures within Soft Robotics</h1>
+    <p class="fade-up delay-1">The literature review focused on key enabling technologies in soft robotics, specifically shape memory alloys (SMAs), pneumatic 
+      actuators, and origami-inspired structural design. It examined the functional characteristics of SMAs—such as the shape memory 
+      effect and pseudoelasticity—as compact and lightweight actuation methods, and contrasted them with the high-force capabilities of 
+      pneumatic actuators. Origami structures were explored for their ability to encode complex behaviors, enable reconfigurable forms, 
+      and enhance mechanical performance. The review identified a significant research gap in the hybrid integration of these actuation 
+      strategies, suggesting strong potential for combining their complementary strengths in modular, scalable systems.</p>
+
+    <div class="pdf-container fade-up delay-2">
+      <!-- Embed PDF -->
+      <embed src="docs/soft_robotics_lit_review.pdf" type="application/pdf" width="100%" height="600px" />
+    </div>
+
+    <h1 class="fade-down delay-3">Prototype: Novel Tendon Driven Kresling Origami Actuator</h1>
+    <p class="fade-up delay-4">In parallel with the literature review, a functional prototype was developed over a two-week period to explore the practical 
+      application of origami-based actuation. The actuator consists of stacked Kresling origami units fabricated from laser-cut 
+      polypropylene, with tendon-driven motion provided by 5V stepper motors. The design achieved consistent vertical compression—up to 
+      36% of its extended height—and programmable bending motion through tendon actuation. While the chosen motors limited overall 
+      torque, the prototype demonstrated the feasibility of modular stacking and programmable motion. This hands-on development validated 
+      insights from the literature and provides a foundation for future exploration of hybrid soft actuators incorporating SMAs and 
+      pneumatic components.</p>
+
+    <div class="pdf-container fade-up delay-5">
+      <!-- Embed PDF -->
+      <embed src="docs/soft_robotics_actuator.pdf" type="application/pdf" width="100%" height="600px" />
+    </div>
+  </main>
+</body>
+</html>

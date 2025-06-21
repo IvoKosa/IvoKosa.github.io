@@ -1,79 +1,87 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Simple Site</title>
+  <title>Ivo Kosa - Project Portfolio</title>
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <style>
-    /* Reset & basic styling */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
     header { background: #2c3e50; }
     nav { display: flex; justify-content: center; }
-    nav a {
-      padding: 1rem 2rem;
-      color: #ecf0f1;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
+    nav a { padding: 1rem 1.5rem; color: #ecf0f1; text-decoration: none; transition: background 0.3s; }
     nav a:hover, nav a.active { background: #34495e; }
     main { padding: 2rem; max-width: 960px; margin: auto; }
-    section { padding: 4rem 0; }
-    h1, h2 { margin-bottom: 1rem; }
-    /* Smooth scrolling */
-    html { scroll-behavior: smooth; }
+    /* About section layout */
+    .about { display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem; }
+    .about img { width: 200px; height: auto; border-radius: 8px; }
+    .project-section { margin-top: 2rem; }
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .project-card { background: #f4f4f4; padding: 1rem; border-radius: 4px; text-align: center; }
+    .project-card h3 a { color: #2c3e50; text-decoration: none; }
+    .project-card h3 a:hover { text-decoration: underline; }
+    .project-img { width: 100%; height: auto; border-radius: 4px; margin-bottom: 0.5rem; transition: transform 0.3s ease; }
+    .project-img:hover { transform: scale(1.05); }
+    h1, p { text-align: justify; hyphens: none; }
+    .pdf-container { margin-top: 1rem; }
   </style>
 </head>
 <body>
   <header>
     <nav>
-      <a href="#home" class="active">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="project1.html">Deep Learning Image Classification</a>
+      <a href="project2.html">Soft Robotics</a>
+      <a href="project3.html">Dissertation: Tactile Robotics</a>
     </nav>
   </header>
-
   <main>
-    <section id="home">
-      <h1>Welcome to My Site</h1>
-      <p>This is the Home section. Add an engaging introduction or hero content here.</p>
-    </section>
+    <div class="about" data-aos="fade-up">
+      <img src="images/profile.jpg" alt="Ivo Kosa portrait" />
+      <div>
+        <h1>About me</h1>
+        <p>Hi, my name is Ivo. I am pursuing Robotics and AI at UCL, where I focus on developing intelligent systems that fuse hardware 
+          innovation with machine learning. My current research explores tactile perception in robotics, aiming to enable robots to 
+          recognize objects and infer their properties through touch-driven deep learning models. I’m passionate about computer vision, 
+          robot localisation, and motion planning in the context of robotics and autonomous systems.</p>
+      </div>
+    </div>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <p>Showcase your projects. You can list them, include links, screenshots, or brief descriptions.</p>
-      <ul>
-        <li><strong>Project A:</strong> Brief description. <a href="#">View repo</a></li>
-        <li><strong>Project B:</strong> Brief description. <a href="#">View repo</a></li>
-      </ul>
-    </section>
-
-    <section id="about">
-      <h2>About Me</h2>
-      <p>Share your bio, skills, background, and how to get in touch.</p>
+    <section class="project-section">
+      <h2 data-aos="fade-up">Projects</h2>
+      <div class="project-grid">
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+          <a href="project1.html">
+            <img src="images/camvid_sample_segmentation_overlay.png" alt="Image Segmentation Overlay" class="project-img" />
+          </a>
+          <h3><a href="project1.html">Deep Learning Image Classification</a></h3>
+          <p>Hybrid bounding box prediction and classification using the YoloV1 and UNet architectures</p>
+        </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <a href="project2.html">
+            <img src="images/actuator_photo.jpg" alt="Prototype Image" class="project-img" />
+          </a>
+          <h3><a href="project2.html">Origami Actuation within Soft Robotics</a></h3>
+          <p>Literature review for state of the art origami structures and actuation methods within the field of soft robotics</p>
+        </div>
+        <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+          <a href="project3.html">
+            <img src="images/gmr_sensor.png" alt="Project C placeholder" class="project-img" />
+          </a>
+          <h3><a href="project3.html">Dissertation: Tactile Robotics</a></h3>
+          <p>Exploration of tactile sensing modalities and object property detection in robotics through deep learning methods.</p>
+        </div>
+      </div>
     </section>
   </main>
 
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
-    // Highlight active nav link on scroll
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav a');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 60;
-        if (pageYOffset >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
-        }
-      });
-    });
+    AOS.init({ once: true, duration: 600 });
   </script>
 </body>
 </html>
