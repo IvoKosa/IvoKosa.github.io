@@ -3,133 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Project</title>
+  <title>My Simple Site</title>
   <style>
-    /* Basic resets and styling */
-    body { margin:0; font-family: Arial, sans-serif; line-height:1.6; color:#333; }
-    header { background:#333; color:#fff; padding:1rem 0; }
-    nav ul { list-style:none; display:flex; justify-content:center; margin:0; padding:0; }
-    nav li { margin: 0 1rem; }
-    nav a { color:#fff; text-decoration:none; font-weight:bold; }
-    .container { width:90%; max-width:960px; margin:auto; overflow:hidden; padding:2rem 0; }
-    #hero { background:#f4f4f4; padding:2rem 0; text-align:center; }
-    #hero h1 { margin-bottom:1rem; }
-    #hero a.btn { display:inline-block; margin-top:1rem; padding:.75rem 1.5rem; background:#333; color:#fff; text-decoration:none; border-radius:4px; }
-    section { padding:2rem 0; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:1rem; }
-    .feature { background:#f4f4f4; padding:1rem; border-radius:4px; text-align:center; }
-    #pointcloud-container { width:100%; height:500px; background:#000; }
-    footer { background:#333; color:#fff; text-align:center; padding:1rem 0; }
+    /* Reset & basic styling */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+    header { background: #2c3e50; }
+    nav { display: flex; justify-content: center; }
+    nav a {
+      padding: 1rem 2rem;
+      color: #ecf0f1;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    nav a:hover, nav a.active { background: #34495e; }
+    main { padding: 2rem; max-width: 960px; margin: auto; }
+    section { padding: 4rem 0; }
+    h1, h2 { margin-bottom: 1rem; }
+    /* Smooth scrolling */
+    html { scroll-behavior: smooth; }
   </style>
-  <!-- Three.js and utility loaders -->
-  <script src="https://unpkg.com/three@0.150.1/build/three.min.js"></script>
-  <script src="https://unpkg.com/three@0.150.1/examples/js/controls/OrbitControls.js"></script>
-  <script src="https://unpkg.com/three@0.150.1/examples/js/loaders/PCDLoader.js"></script>
 </head>
 <body>
   <header>
     <nav>
-      <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#installation">Installation</a></li>
-        <li><a href="#usage">Usage</a></li>
-        <li><a href="#pointcloud">Point Cloud</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="https://github.com/username/repo" target="_blank">GitHub</a></li>
-      </ul>
+      <a href="#home" class="active">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
     </nav>
   </header>
 
-  <main class="container">
-    <section id="hero">
-      <h1>My Project</h1>
-      <p>A brief tagline or description of what your project does.</p>
-      <a href="https://github.com/username/repo" class="btn" target="_blank">View on GitHub</a>
+  <main>
+    <section id="home">
+      <h1>Welcome to My Site</h1>
+      <p>This is the Home section. Add an engaging introduction or hero content here.</p>
     </section>
 
-    <section id="features">
-      <h2>Features</h2>
-      <div class="grid">
-        <div class="feature">
-          <h3>Feature 1</h3>
-          <p>Describe feature 1</p>
-        </div>
-        <div class="feature">
-          <h3>Feature 2</h3>
-          <p>Describe feature 2</p>
-        </div>
-        <div class="feature">
-          <h3>Feature 3</h3>
-          <p>Describe feature 3</p>
-        </div>
-      </div>
+    <section id="projects">
+      <h2>Projects</h2>
+      <p>Showcase your projects. You can list them, include links, screenshots, or brief descriptions.</p>
+      <ul>
+        <li><strong>Project A:</strong> Brief description. <a href="#">View repo</a></li>
+        <li><strong>Project B:</strong> Brief description. <a href="#">View repo</a></li>
+      </ul>
     </section>
 
-    <section id="installation">
-      <h2>Installation</h2>
-      <pre><code>git clone https://github.com/username/repo.git
-cd repo
-npm install
-</code></pre>
-    </section>
-
-    <section id="usage">
-      <h2>Usage</h2>
-      <p>Explain how to use your project.</p>
-      <pre><code>npm start
-</code></pre>
-    </section>
-
-    <section id="pointcloud">
-      <h2>Interactive Point Cloud (.pcd)</h2>
-      <div id="pointcloud-container"></div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Created by <a href="https://github.com/username" target="_blank">Your Name</a>. Feel free to reach out!</p>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Share your bio, skills, background, and how to get in touch.</p>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Your Name. Licensed under the MIT License.</p>
-  </footer>
-
   <script>
-    // Three.js scene setup
-    const container = document.getElementById('pointcloud-container');
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.set(0, 0, 5);
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    container.appendChild(renderer.domElement);
-
-    const controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-
-    // Load and add .pcd point cloud
-    const loader = new THREE.PCDLoader();
-    loader.load('models/cutty_sark.pcd', function (points) {
-      points.material.size = 0.01;
-      scene.add(points);
-      animate();
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 60;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
     });
-
-    // Handle resize
-    window.addEventListener('resize', () => {
-      camera.aspect = container.clientWidth / container.clientHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(container.clientWidth, container.clientHeight);
-    });
-
-    function animate() {
-      requestAnimationFrame(animate);
-      controls.update();
-      renderer.render(scene, camera);
-    }
   </script>
 </body>
 </html>
