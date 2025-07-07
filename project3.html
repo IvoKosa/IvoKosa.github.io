@@ -75,6 +75,32 @@
       text-align: left;
     }
 
+    .inline-list {
+      margin: 0;
+      padding: 0;
+    }
+
+    .inline-list span {
+      display: block;           /* force each item onto its own line */
+      position: relative;
+      padding-left: 1em;        /* space for the bullet */
+      margin-bottom: 0.5em;     /* gap between lines */
+    }
+
+    .inline-list span::before {
+      content: '•';             /* the bullet character */
+      position: absolute;
+      left: 0;
+      color: #333;              /* bullet color */
+    }
+
+    /* Responsive stack */
+    @media (max-width: 768px) {
+      .section-container { flex-direction: column; }
+      .bibliography li { flex-direction: column; }
+      .bibliography .bib-button { margin-bottom: 0.5rem; }
+    }
+
     /* Responsive stack */
     @media (max-width: 768px) {
       .section-container { flex-direction: column; }
