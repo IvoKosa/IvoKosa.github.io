@@ -148,17 +148,9 @@
     <div class="section-container">
       <div class="section-text">
         <h2>Test Objects</h2>
-        <p>Custom test objects were cast from ecoflex-00-50 silicone (Smooth-On, Inc.), for which the surfaces were modelled to vaguely resemble
-          the textures of fruits. An initial 4 test objects were cast using a total of 160g of silicone and allowed to cure for 3 hours. The textures 
-          chosen were:
-        </p>
-        <p class="inline-list">
-          <span>1 smooth object</span>
-          <span>1 “citrus” with small irregular indentations</span>
-          <span>1 “berry” with small bumps in a regular pattern</span>
-          <span>1 “berry” with different sized bumps in a regular pattern</span>
-        </p>
-        <p>The aim is to teach the model to recognize these different textures without any other information such as shape.</p>
+        <p>Custom test objects were cast from 5 different silicones each with a different rigidity, alongside a fully 3D printed set, for a total of 6 
+          different material types. For each material 6 different bodies, each with a different texture, were created giving 36 different objects all together.
+          The aim is to teach the model to recognize these different textures and materials with only one grasp from the robot manipulator.</p>
       </div>
       <div class="section-img">
         <img src="images/silicone_test_objects.png" alt="Silicone Test Objects" />
@@ -172,9 +164,9 @@
       </div>
       <div class="section-text">
         <h2>What’s Next</h2>
-        <p>The next task for this project is to design the controller and data gathering method for the experiment. The data gathering will involve 
-          building an interface for the arduino board which receives the signals from the sensor. The control mechanism will need to be able to move the 
-          manipulator into the correct positions in order to gather the data, the exact motion for which will also need to be considered.
+        <p>Now that the dataset has been created and the experiment run, the data must now be used to effectively classify both the texture and material. 
+          Some initial success has been had with a 1DCNN reaching accuracies of 98%, but other machine and deep learning methods need to be investigated 
+          to compare with these results.
         </p>
       </div>
     </div>
